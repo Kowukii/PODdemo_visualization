@@ -5,7 +5,7 @@ from matplotlib.animation import FuncAnimation
 from scipy import signal
 from classicPOD import pod_svd, matrix2real
 def Uxyt2Uxt(Uxyt):
-    # 把3为矩阵xyt压缩为xt
+    # 把3维矩阵xyt压缩为xt
     [Ny, Nx, Nt] = [np.size(Uxyt, 0), np.size(Uxyt, 1), np.size(Uxyt, 2)]
     Nxy = Ny * Nx
     Uxt = np.reshape(Uxyt, (Nxy, Nt))
@@ -260,6 +260,7 @@ def vectorPOD():
     # 计算UV向量
     U_xt = Uxyt2Uxt(U_Sum)  # 把二维问题转化为一维问题
     V_xt = Uxyt2Uxt(V_Sum)
+
 
     # 合并UV向量
     UV_xt = np.vstack((U_xt, V_xt))
